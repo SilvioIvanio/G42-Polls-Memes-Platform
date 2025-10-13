@@ -1,0 +1,22 @@
+/* forms.css - form related styles */
+
+form label {
+    display: block; 
+    margin-bottom: 6px; 
+    font-weight: 600; 
+}
+
+#RegisterLink {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#msg {
+    margin-top: 12px; 
+}

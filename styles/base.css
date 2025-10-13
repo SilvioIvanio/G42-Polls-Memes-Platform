@@ -1,0 +1,27 @@
+/* base.css - base element styles and typographic defaults */
+
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    background: #f8f9fb; 
+    color: #111; 
+}
+
+a { color: inherit; }
+
+button { 
+    background: #2563eb; 
+    color: #fff; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+}
+
+input, textarea { 
+    width: 100%; 
+    padding: 8px; 
+    margin: 6px 0 12px; 
+    border-radius: 4px; 
+    border: 1px solid #ddd; 
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Campus Pulse - Register</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <main class="container small">
+    <h2>Register</h2>
+    <form id="registerForm">
+        <label>Username</label>
+        <input type="username" name="username" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <label>Confirm Password</label>
+        <input type="password" name="confirm" required>
+        <div id="msg" aria-live="polite" style="color:crimson;margin-top:.5rem"></div>
+        <button type="submit">Register</button>
+    </form>
+  </main>
+  <script src="../JS/Register.js"></script>
+</body>
+</html>

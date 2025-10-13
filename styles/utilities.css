@@ -1,0 +1,17 @@
+/* utilities.css - small helpers */
+
+.text-center { 
+    text-align: center; 
+}
+
+.mt-1 { 
+    margin-top: 8px; 
+}
+
+.mb-1 { 
+    margin-bottom: 8px; 
+}
+
+.hidden { 
+    display: none !important; 
+}

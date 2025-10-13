@@ -1,0 +1,32 @@
+/* layout.css - containers, nav and page layout */
+
+.nav { 
+    background: #1f2937; 
+    color: #fff; 
+    padding: 12px 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.nav a { 
+    color: #fff; 
+    margin-left: 10px; 
+    text-decoration: none; 
+}
+
+.container { 
+    max-width: 900px; 
+    margin: 20px auto; 
+    padding: 0 16px; 
+}
+
+.small { 
+    max-width: 600px; 
+}
+
+@media (max-width: 600px) {
+  .container { 
+    padding: 0 12px; 
+    }
+}

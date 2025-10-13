@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Create - Campus Pulse</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="container small">
+    <h2>Create a Poll</h2>
+    <form id="pollForm">
+      <label>Question</label>
+      <input name="question" required>
+      <label>Options (comma separated)</label>
+      <input name="options" required placeholder="Option A, Option B, Option C">
+      <button type="submit">Create Poll</button>
+    </form>
+
+    <hr>
+    <h2>Upload Meme</h2>
+    <form id="memeForm" enctype="multipart/form-data">
+      <label>Image</label>
+      <input type="file" name="meme" accept="image/*" required>
+      <label>Caption (optional)</label>
+      <input name="caption">
+      <button type="submit">Upload Meme</button>
+    </form>
+
+    <div id="msg"></div>
+  </main>
+
+  <script src="Poll.js"></script>
+  <script src="Meme.js"></script>
+  
+</body>
+</html>

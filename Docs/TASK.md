@@ -19,7 +19,7 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 
 - [x]  Step 1: Project kickoff & proposal submission
 - [x]  Step 2: Requirements document
-- [ ]  Step 3: Wireframes / HTML skeleton (**Checkpoint 1**)
+- [ ]  Step 3: HTML skeleton (**Checkpoint 1**)
 - [ ]  Step 4: Technical design
 - [ ]  Step 5: Static HTML/CSS prototype
 - [ ]  Step 6: JavaScript interactivity (**Checkpoint 2**)

@@ -34,7 +34,7 @@ professional demo |
 
 ## **Project Timeline (Step-based)**
 
-- [ ]  Step 1: Project kickoff & proposal submission
+- [x]  Step 1: Project kickoff & proposal submission
 - [ ]  Step 2: Requirements document
 - [ ]  Step 3: Wireframes / HTML skeleton (**Checkpoint 1**)
 - [ ]  Step 4: Technical design

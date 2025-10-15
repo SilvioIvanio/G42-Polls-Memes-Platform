@@ -2,7 +2,6 @@
 
 ---
 
-**Version:** 1.0
 **Group:** 42 (Silvio Ivanio, Andris Kaishungu, Hernane Prata)
 **Project:** Campus Pulse: Polls & Memes Platform
 

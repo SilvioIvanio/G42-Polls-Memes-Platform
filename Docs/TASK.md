@@ -6,31 +6,14 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 
 | **Criterion** | **Weight** | **Excellent (100%)** |
 | --- | --- | --- |
-| Proposal & Planning | 10% | Detailed scope,
-milestones, risks
-considered |
-| Teamwork & Collaboration | 10% | Equal contribution, strong collaboration |
-| Functionality &
-Requirements | 25% | All features com-
-plete, stable, exceeds requirements |
-| Code Quality &
-Structure | 15% | Clean, modular, well-commented,
-
-secure |
-| User Interface &
-Design | 10% | Professional,
-
-responsive, accessible, polished |
-| Use of Technology | 10% | Advanced/creative
-use, APIs, DB
-integration |
-| Innovation & Relevance | 10% | Creative, locally relevant, unique features |
-| Documentation &
-Presentation | 10% | Comprehensive
-
-documentation,
-
-professional demo |
+| Proposal & Planning | 10% | Detailed scope, milestones, and risk analysis |
+| Teamwork & Collaboration | 10% | Equal contribution and effective collaboration |
+| Functionality & Requirements | 25% | All features complete, stable, and exceeds requirements |
+| Code Quality & Structure | 15% | Clean, modular, well-commented, and secure |
+| User Interface & Design | 10% | Professional, responsive, accessible, and polished |
+| Use of Technology | 10% | Advanced or creative use of APIs and database integration |
+| Innovation & Relevance | 10% | Creative, locally relevant, with unique features |
+| Documentation & Presentation | 10% | Comprehensive documentation and professional demo |
 
 ## **Project Timeline (Step-based)**
 
@@ -63,7 +46,7 @@ Use of these tools is part of the evaluation in **Teamwork**, **Code Quality**, 
 
 **Group:** 42
 
-| **Student Names** | **Student Names** | **Email** |
+| **Name** | **Student No.** | **Email** |
 | --- | --- | --- |
 | Silvio Ivanio | 224046179 | [silvioivanio29@gmail.com](mailto:silvioivanio29@gmail.com) |
 | Andris Kaishungu | 223043710 | [kashtheguide@gmail.com](mailto:kashtheguide@gmail.com) |

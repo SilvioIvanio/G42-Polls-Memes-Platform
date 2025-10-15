@@ -3,17 +3,25 @@ require_once 'db.php';
 session_start();
 $data = json_decode(file_get_contents('php://input'), true);
 
-$email = trim($data['email'] ?? '');
+// Accept either email or username in the payload (fields: email, username or identifier)
+$identifier = trim($data['email'] ?? $data['identifier'] ?? $data['username'] ?? '');
 $password = $data['password'] ?? '';
 
-if (!$email || !$password) {
+if (!$identifier || !$password) {
     http_response_code(400);
     echo json_encode(['error' => 'Missing fields']);
     exit;
 }
 
-$stmt = $pdo->prepare('SELECT id, password_hash, is_admin FROM users WHERE email = ? LIMIT 1');
-$stmt->execute([$email]);
+// Decides whether the identifier looks like an email
+if (strpos($identifier, '@') !== false) {
+    $stmt = $pdo->prepare('SELECT id, password_hash, is_admin FROM users WHERE email = ? LIMIT 1');
+    $stmt->execute([$identifier]);
+} else {
+    $stmt = $pdo->prepare('SELECT id, password_hash, is_admin FROM users WHERE username = ? LIMIT 1');
+    $stmt->execute([$identifier]);
+}
+
 $user = $stmt->fetch();
 
 if (!$user || !password_verify($password, $user['password_hash'])) {
@@ -22,7 +30,7 @@ if (!$user || !password_verify($password, $user['password_hash'])) {
     exit;
 }
 
-// successful login
+// login successful
 session_regenerate_id(true);
 $_SESSION['user_id'] = (int)$user['id'];
 $_SESSION['is_admin'] = (bool)$user['is_admin'];

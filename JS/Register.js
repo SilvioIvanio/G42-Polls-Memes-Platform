@@ -1,12 +1,14 @@
+import { register } from './api.js';
+
 const form = document.getElementById('registerForm');
 if (form) {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const fd = new FormData(form);
-        // send as form-encoded data so PHP backend can handle it normally
-        const res = await fetch('../API/register.php', { method: 'POST', body: fd });
-        let j = {};
-        try { j = await res.json(); } catch (err) { console.error('Invalid JSON response', err); }
+        const username = fd.get('username');
+        const email = fd.get('email');
+        const password = fd.get('password');
+        const j = await register(username, email, password);
         if (j && j.success) {
             window.location = '../index.html';
         } else {

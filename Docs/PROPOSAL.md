@@ -109,19 +109,19 @@ Limitations:
 
 ### **Wireframes/mock-ups**
 
-![WhatsApp Image 2025-09-11 at 15.07.18_e387c057.jpg](attachment:e38086b0-3c08-4e8d-84b3-d85f63d132f6:WhatsApp_Image_2025-09-11_at_15.07.18_e387c057.jpg)
+![Login Page](https://github.com/user-attachments/assets/86e5331e-0e37-4618-b45d-be103bd01752)
 
-![WhatsApp Image 2025-09-11 at 15.07.11_883a0d35.jpg](attachment:831e2642-dc3e-4eda-9505-a0f9a40d3206:WhatsApp_Image_2025-09-11_at_15.07.11_883a0d35.jpg)
+![Registration Page](https://github.com/user-attachments/assets/4c8ade5c-ea88-474a-aea2-25f92299f18b)
 
-![WhatsApp Image 2025-09-11 at 15.07.31_b8c31942.jpg](attachment:02f0a560-bf3e-4e39-83ba-c8c5f16a0089:WhatsApp_Image_2025-09-11_at_15.07.31_b8c31942.jpg)
+![Home Page](https://github.com/user-attachments/assets/bc4ae427-ff81-47ce-92e7-50bf50948ae5)
 
-![WhatsApp Image 2025-09-11 at 15.07.14_94302066.jpg](attachment:74eaf117-3a60-4d0c-a4ab-68a3a28df8c4:WhatsApp_Image_2025-09-11_at_15.07.14_94302066.jpg)
+![Create Page](https://github.com/user-attachments/assets/bd3bb3e7-7676-484e-9ef5-3817f7ca5526)
 
-![WhatsApp Image 2025-09-11 at 15.07.09_58d01a46.jpg](attachment:1bda4d39-b93a-4d81-9514-2f5a48258b38:WhatsApp_Image_2025-09-11_at_15.07.09_58d01a46.jpg)
+![Memes Page](https://github.com/user-attachments/assets/9e998962-4488-4541-8526-7055248bd935)
 
-![WhatsApp Image 2025-09-11 at 15.07.25_af0d6fcc.jpg](attachment:a75a9d78-af15-4b51-9a8c-a9a07e072790:WhatsApp_Image_2025-09-11_at_15.07.25_af0d6fcc.jpg)
+![Polls Page](https://github.com/user-attachments/assets/33a60849-4350-4a4e-977d-6d9d13f5f47d)
 
-![WhatsApp Image 2025-09-11 at 15.07.22_d877932c.jpg](attachment:8720f7db-d8a0-4304-8934-c9d8d737c5de:WhatsApp_Image_2025-09-11_at_15.07.22_d877932c.jpg)
+![Admin Panel](https://github.com/user-attachments/assets/815e5333-27ac-47a2-bf4e-54980a4a1b4b)
 
 ### **Navigation flow**
 

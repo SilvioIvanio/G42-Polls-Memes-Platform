@@ -35,7 +35,7 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 ## **Project Tools & Workflow**
 
 - **GitHub (or Git)** – version control: commits, branches, pull requests
-- **Notion** – project management, task tracking
+- **Trello** – project management, task tracking
 - **VS Code** – coding environments
 - **Accessibility Tools** – Lighthouse, WAVE, browser DevTools for validation
 - **Collaboration** – strong team communication & file sharing

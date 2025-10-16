@@ -1,4 +1,4 @@
-/* forms.css - form related styles */
+/* here we have form related styles */
 
 form label {
     display: block; 
@@ -8,7 +8,7 @@ form label {
 
 #RegisterLink {
     display: inline-block;
-    background: #2563eb;
+    background: var(--color-primary);
     color: #fff;
     border: none;
     padding: 8px 12px;

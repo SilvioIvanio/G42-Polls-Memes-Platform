@@ -1,27 +1,47 @@
-/* base.css - base element styles and typographic defaults */
+/* This is where the default base element styles and 
+typographic defaults are located */
 
 body { 
     font-family: Arial, sans-serif; 
     margin: 0; 
-    background: #f8f9fb; 
-    color: #111; 
+    background: var(--color-bg); 
+    color: var(--color-text); 
 }
 
 a { color: inherit; }
 
 button { 
-    background: #2563eb; 
+    background: var(--color-primary);
     color: #fff; 
     border: none; 
     padding: 8px 12px; 
-    border-radius: 6px; 
+    border-radius: 15px; 
     cursor: pointer; 
+}
+
+button, input[type=submit] {
+    transition: background-color .12s ease;
+}
+
+button:hover, input[type=submit]:hover {
+    background: var(--color-primary-700);
+}
+
+#RegisterLink {
+    transition: background-color .12s ease;
+}
+#RegisterLink:hover {
+    background: var(--color-primary-700);
+}
+button:focus-visible {
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 3px;
 }
 
 input, textarea { 
     width: 100%; 
     padding: 8px; 
     margin: 6px 0 12px; 
-    border-radius: 4px; 
-    border: 1px solid #ddd; 
+    border-radius: 20px; 
+    border: 1px solid rgba(0,0,0,0.08);
 }

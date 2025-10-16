@@ -22,20 +22,24 @@
     <section id="featured">
       <h2>Featured</h2>
       <p class="muted">A curated selection of recent polls and memes.</p>
-      <div class="featured-grid">
-        <div class="featured-item" id="featuredPoll">
-          <h3>Featured Poll</h3>
-          <div class="preview poll-preview">
-            <p class="question">Loading poll preview...</p>
-            <div class="choices">&nbsp;</div>
+      <div class="featured-area">
+        <div class="featured-card">
+          <div class="featured-item" id="featuredPoll">
+            <h3>Featured Poll</h3>
+            <div class="preview poll-preview">
+              <p class="question">Loading poll preview...</p>
+              <div class="choices">&nbsp;</div>
+            </div>
           </div>
         </div>
 
-        <div class="featured-item" id="featuredMeme">
-          <h3>Featured Meme</h3>
-          <div class="preview meme-preview">
-            <img src="../styles/placeholder.png" alt="meme preview" />
-            <p class="caption">Loading meme preview...</p>
+        <div class="featured-card">
+          <div class="featured-item" id="featuredMeme">
+            <h3>Featured Meme</h3>
+            <div class="preview meme-preview">
+              <img src="../styles/placeholder.png" alt="meme preview" />
+              <p class="caption">Loading meme preview...</p>
+            </div>
           </div>
         </div>
       </div>
@@ -44,12 +48,12 @@
     <section id="previewSection">
       <h2>Latest Previews</h2>
       <div class="preview-row">
-        <article class="card" id="previewPoll">
+        <article class="card" id="previewPoll" tabindex="0" role="article" aria-labelledby="previewPollTitle">
           <h4>Poll Preview</h4>
           <div id="pollPreviewCard">Loading...</div>
         </article>
 
-        <article class="card" id="previewMeme">
+        <article class="card" id="previewMeme" tabindex="0" role="article" aria-labelledby="previewMemeTitle">
           <h4>Meme Preview</h4>
           <div id="memePreviewCard">Loading...</div>
         </article>

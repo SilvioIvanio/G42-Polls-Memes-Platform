@@ -1,0 +1,35 @@
+:root {
+    
+    --color-primary: #2563eb; /* blue-600 */
+    --color-primary-600: #2563eb;
+    --color-primary-500: #3b82f6;
+    --color-primary-700: #1e40af;
+
+    /* Backgrounds / surfaces */
+    --color-bg: #c8daff;
+    --color-surface: #dde8fd;
+
+    /* Text */
+    --color-text: #111111;
+    --color-muted: #6b7280; /* gray-500 */
+
+    /* Status */
+    --color-success: #16a34a;
+    --color-danger: #dc2626;
+
+    /* Shadows / overlays */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-2: 0 2px 8px rgba(2,6,23,0.04);
+    --shadow-feature: 0 6px 20px rgba(2,6,23,0.06);
+    --shadow-feature-hover: 0 12px 30px rgba(2,6,23,0.08);
+
+    /* form card shadow */
+    --shadow-form: 0 8px 24px rgba(2,6,23,0.06);
+    --shadow-form-hover: 0 14px 40px rgba(2,6,23,0.09);
+
+    /* Focus outline */
+    --focus-outline: rgba(59,130,246,0.35);
+
+    /*Header*/
+    --color-header-bg: #1b3281; /* dark slate for nav */
+}

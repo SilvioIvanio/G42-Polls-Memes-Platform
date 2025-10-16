@@ -5,26 +5,42 @@
   <title>Create - Campus Pulse</title>
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
+<header class="nav">
+    <h1>Campus Pulse</h1>
+    <nav class="nav-actions">
+      <a href="homepage.html" id="homeLink">Home</a>
+      <a href="index.html" id="overviewLink">Overview</a>
+      <a href="polls.html" id="pollsLink">Polls</a>
+      <a href="memes.html" id="memesLink">Memes</a>
+      <a href="create.html" id="createLink">Create</a>
+      <a href="login.html" id="logoutLink">Logout</a>
+    </nav>
+  </header>
 <body>
   <main class="container small">
-    <h2>Create a Poll</h2>
-    <form id="pollForm">
-      <label>Question</label>
-      <input name="question" required>
-      <label>Options (comma separated)</label>
-      <input name="options" required placeholder="Option A, Option B, Option C">
-      <button type="submit">Create Poll</button>
-    </form>
+    <section class="form-card" aria-labelledby="pollHeading">
+      <h2 id="pollHeading">Create a Poll</h2>
+      <form id="pollForm">
+        <label>Question</label>
+        <input name="question" required>
+        <label>Options (comma separated)</label>
+        <input name="options" required placeholder="Option A, Option B, Option C">
+        <button type="submit">Create Poll</button>
+      </form>
+    </section>
 
     <hr>
-    <h2>Upload Meme</h2>
-    <form id="memeForm" enctype="multipart/form-data">
-      <label>Image</label>
-      <input type="file" name="meme" accept="image/*" required>
-      <label>Caption (optional)</label>
-      <input name="caption">
-      <button type="submit">Upload Meme</button>
-    </form>
+
+    <section class="form-card" aria-labelledby="memeHeading">
+      <h2 id="memeHeading">Upload Meme</h2>
+      <form id="memeForm" enctype="multipart/form-data">
+        <label>Image</label>
+        <input type="file" name="meme" accept="image/*" required>
+        <label>Caption (optional)</label>
+        <input name="caption">
+        <button type="submit">Upload Meme</button>
+      </form>
+    </section>
 
     <div id="msg"></div>
   </main>

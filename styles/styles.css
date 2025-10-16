@@ -1,8 +1,8 @@
 
-/* styles.css - entry point for modular styles
-   This file keeps the single href reference used by HTML and imports
-   modular CSS files stored in the `styles/` directory. */
+/* This is where we keep the single href reference used by HTML while 
+importing modular CSS files stored in the `styles/` directory. */
 
+@import url("variables.css");
 @import url("base.css");
 @import url("layout.css");
 @import url("components.css");

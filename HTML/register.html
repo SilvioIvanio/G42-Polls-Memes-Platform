@@ -6,20 +6,25 @@
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+  <header class="nav">
+    <h1>Campus Pulse</h1>
+  </header>
   <main class="container small">
-    <h2>Register</h2>
-    <form id="registerForm">
-        <label>Username</label>
-        <input type="username" name="username" required>
-        <label>Email</label>
-        <input type="email" name="email" required>
-        <label>Password</label>
-        <input type="password" name="password" required>
-        <label>Confirm Password</label>
-        <input type="password" name="confirm" required>
-        <div id="msg" aria-live="polite" style="color:crimson;margin-top:.5rem"></div>
-        <button type="submit">Register</button>
-    </form>
+    <section class="form-card" aria-labelledby="registerHeading">
+      <h2 id="registerHeading">Register</h2>
+      <form id="registerForm">
+          <label>Username</label>
+          <input type="username" name="username" required>
+          <label>Email</label>
+          <input type="email" name="email" required>
+          <label>Password</label>
+          <input type="password" name="password" required>
+          <label>Confirm Password</label>
+          <input type="password" name="confirm" required>
+          <div id="msg" aria-live="polite" style="color:crimson;margin-top:.5rem"></div>
+          <button type="submit">Register</button>
+      </form>
+    </section>
   </main>
   <script type="module" src="../JS/app.module.js"></script>
   <script type="module" src="../JS/Register.js"></script>

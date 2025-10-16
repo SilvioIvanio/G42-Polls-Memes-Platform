@@ -1,7 +1,7 @@
-/* layout.css - containers, nav and page layout */
+/* Here we have the containers, nav and page layout styling */
 
 .nav { 
-    background: #1f2937; 
+    background: var(--color-header-bg);
     color: #fff; 
     padding: 12px 20px; 
     display: flex; 

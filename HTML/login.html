@@ -6,19 +6,26 @@
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+  <header class="nav">
+    <h1>Campus Pulse</h1>
+  </header>
   <main class="container small">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label>Email or Username</label>
-      <input type="text" name="identifier" required>
-      <label>Password</label>
-      <input type="password" name="password" required>
-      <button type="submit">Login</button>
-    </form>
+    <section class="form-card" aria-labelledby="loginHeading">
+      <h2 id="loginHeading">Login</h2>
+      <form id="loginForm">
+        <label>Email or Username</label>
+        <input type="text" name="identifier" required>
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+    </section>
 
     <hr>
-    <h3>Register Here</h3>
-    <a href="register.html" id="RegisterLink">Register</a>
+    <div class="mb-1">
+      <h3>Register Here</h3>
+      <a href="register.html" id="RegisterLink">Register</a>
+    </div>
 
     <div id="msg"></div>
   </main>

@@ -33,3 +33,30 @@
     /*Header*/
     --color-header-bg: #1b3281; /* dark slate for nav */
 }
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --color-primary: #3b82f6;
+    --color-primary-600: #3b82f6;
+    --color-primary-500: #60a5fa;
+    --color-primary-700: #2563eb;
+
+    /* Dark backgrounds */
+    --color-bg: #0f172a; /* slate-900 */
+    --color-surface: #1e293b; /* slate-800 */
+    --color-header-bg: #0a0f1f;
+
+    /* Dark text */
+    --color-text: #f1f5f9; /* slate-100 */
+    --color-muted: #94a3b8; /* slate-400 */
+
+    /* Darker shadows */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-2: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-feature: 0 6px 20px rgba(0,0,0,0.4);
+    --shadow-feature-hover: 0 12px 30px rgba(0,0,0,0.5);
+    --shadow-form: 0 8px 24px rgba(0,0,0,0.4);
+    --shadow-form-hover: 0 14px 40px rgba(0,0,0,0.5);
+
+    --focus-outline: rgba(96,165,250,0.5);
+}

@@ -2,7 +2,14 @@ import { fetchPollsData, fetchMemesData } from './api.js';
 import { renderPolls, renderMemes } from './renderers.js';
 import { attachLogout, highlightNav } from './nav.js';
 
+// Apply saved theme on page load
+function applyTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
 async function init() {
+  applyTheme();
   highlightNav();
   attachLogout();
 

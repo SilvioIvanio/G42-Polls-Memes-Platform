@@ -46,3 +46,17 @@ export async function uploadMeme(formData) {
     return { error: 'Upload failed: ' + err.message };
   }
 }
+
+export async function getUserProfile() {
+  const res = await fetch('/API/get_profile.php');
+  return await res.json();
+}
+
+export async function updateProfile(data) {
+  const res = await fetch('/API/update_profile.php', { 
+    method: 'POST', 
+    headers: { 'Content-Type': 'application/json' }, 
+    body: JSON.stringify(data) 
+  });
+  return await res.json();
+}

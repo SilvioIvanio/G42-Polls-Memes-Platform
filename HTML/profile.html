@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Profile - Campus Pulse</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <h1>Campus Pulse</h1>
+    <nav class="nav-actions">
+      <a href="homepage.html" id="homeLink">Home</a>
+      <a href="polls.html" id="pollsLink">Polls</a>
+      <a href="memes.html" id="memesLink">Memes</a>
+      <a href="create.html" id="createLink">Create</a>
+      <a href="profile.html" id="profileLink">Profile</a>
+      <a href="#" id="logoutLink">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container small">
+    <section class="form-card" aria-labelledby="profileHeading">
+      <h2 id="profileHeading">My Profile</h2>
+      
+      <div id="profileView" class="profile-view">
+        <div class="profile-info">
+          <div class="info-row">
+            <label>Username:</label>
+            <span id="displayUsername">Loading...</span>
+          </div>
+          <div class="info-row">
+            <label>Email:</label>
+            <span id="displayEmail">Loading...</span>
+          </div>
+          <div class="info-row">
+            <label>Member Since:</label>
+            <span id="displayCreatedAt">Loading...</span>
+          </div>
+        </div>
+        <button id="editProfileBtn" class="btn-secondary">Edit Profile</button>
+      </div>
+
+      <form id="profileEditForm" style="display: none;">
+        <label>Username</label>
+        <input type="text" name="username" id="editUsername" required>
+        
+        <label>Email</label>
+        <input type="email" name="email" id="editEmail" required>
+        
+        <label>New Password (leave blank to keep current)</label>
+        <input type="password" name="newPassword" id="editPassword">
+        
+        <label>Confirm New Password</label>
+        <input type="password" name="confirmPassword" id="editConfirmPassword">
+        
+        <div class="form-actions">
+          <button type="submit">Save Changes</button>
+          <button type="button" id="cancelEditBtn" class="btn-secondary">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <hr>
+
+    <section class="form-card" aria-labelledby="settingsHeading">
+      <h2 id="settingsHeading">Settings</h2>
+      
+      <div class="settings-group">
+        <div class="setting-item">
+          <div class="setting-info">
+            <h3>Theme</h3>
+            <p>Choose between light and dark mode</p>
+          </div>
+          <div class="theme-toggle">
+            <button id="lightModeBtn" class="theme-btn active" aria-label="Light mode">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+              Light
+            </button>
+            <button id="darkModeBtn" class="theme-btn" aria-label="Dark mode">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              Dark
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="msg"></div>
+  </main>
+
+  <script type="module" src="../JS/app.module.js"></script>
+  <script type="module" src="../JS/profile.js"></script>
+</body>
+</html>

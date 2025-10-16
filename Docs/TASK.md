@@ -18,8 +18,8 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 ## **Project Timeline (Step-based)**
 
 - [x]  Step 1: Project kickoff & proposal submission
-- [ ]  Step 2: Requirements document
-- [ ]  Step 3: Wireframes / HTML skeleton (**Checkpoint 1**)
+- [x]  Step 2: Requirements document
+- [ ]  Step 3: HTML skeleton (**Checkpoint 1**)
 - [ ]  Step 4: Technical design
 - [ ]  Step 5: Static HTML/CSS prototype
 - [ ]  Step 6: JavaScript interactivity (**Checkpoint 2**)
@@ -35,7 +35,7 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 ## **Project Tools & Workflow**
 
 - **GitHub (or Git)** – version control: commits, branches, pull requests
-- **Notion** – project management, task tracking
+- **Trello** – project management, task tracking
 - **VS Code** – coding environments
 - **Accessibility Tools** – Lighthouse, WAVE, browser DevTools for validation
 - **Collaboration** – strong team communication & file sharing

@@ -1,6 +1,8 @@
 <?php
+header('Content-Type: application/json');
 require_once 'db.php';
 session_start();
+
 if (empty($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode(['error' => 'Not authenticated']);
@@ -39,8 +41,12 @@ if (!move_uploaded_file($file['tmp_name'], $target)) {
     exit;
 }
 
-$stmt = $pdo->prepare('INSERT INTO memes (user_id, filename, caption) VALUES (?, ?, ?)');
-$stmt->execute([$_SESSION['user_id'], $filename, $caption]);
-
-echo json_encode(['success' => true, 'filename' => $filename]);
+try {
+    $stmt = $pdo->prepare('INSERT INTO memes (user_id, filename, caption) VALUES (?, ?, ?)');
+    $stmt->execute([$_SESSION['user_id'], $filename, $caption]);
+    echo json_encode(['success' => true, 'filename' => $filename]);
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Database error']);
+}
 ?>

@@ -40,6 +40,10 @@
     margin-left: 16px; /* Add space */
 }
 
+.content-delete-btn:hover {
+    background: red;
+}
+
 .poll-meta {
     color: var(--color-muted);
     font-size: 0.9rem;

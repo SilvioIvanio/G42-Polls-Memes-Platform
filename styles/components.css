@@ -13,6 +13,9 @@
     align-items: flex-start;
     margin-bottom: 6px;
 }
+.poll-header .content-delete-btn {
+   margin-right: 5px;
+}
 
 .poll-header strong {
     flex-grow: 1;

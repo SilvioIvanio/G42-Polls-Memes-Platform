@@ -1,4 +1,4 @@
-// api.js - small wrapper around backend endpoints
+// Does some small wrappeing around backend endpoints
 export async function fetchPollsData() {
   const res = await fetch('/API/fetch_polls.php');
   return await res.json();
@@ -10,7 +10,12 @@ export async function fetchMemesData() {
 }
 
 export async function vote(poll_id, option_id) {
-  const res = await fetch('/API/vote.php', { method: 'POST', body: JSON.stringify({ poll_id, option_id }) });
+  const res = await fetch('/API/vote.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ poll_id, option_id }) });
+  return await res.json();
+}
+
+export async function unvote(poll_id, option_id) {
+  const res = await fetch('/API/unvote.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ poll_id, option_id }) });
   return await res.json();
 }
 
@@ -30,8 +35,8 @@ export async function register(username, email, password) {
   return await res.json();
 }
 
-export async function createPoll(question, options) {
-  const res = await fetch('/API/create_poll.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question, options }) });
+export async function createPoll(question, options, allowMultiple = false) {
+  const res = await fetch('/API/create_poll.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question, options, allow_multiple_choices: allowMultiple }) });
   return await res.json();
 }
 

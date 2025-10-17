@@ -20,11 +20,10 @@ if (form) {
         const fd = new FormData(form);
         const question = fd.get('question');
         const options = (fd.get('options') || '').split(',').map(s => s.trim()).filter(Boolean);
-        const allowMultiple = fd.get('allowMultiple') === 'on';
         const v = validatePoll(question, options);
         const msg = document.getElementById('msg');
         if (!v.valid) { if (msg) msg.innerText = v.error; return; }
-        const j = await createPoll(question, options, allowMultiple);
+        const j = await createPoll(question, options);
         if (msg) msg.innerText = j.success ? 'Poll created' : (j.error || 'Failed');
     });
 }

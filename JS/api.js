@@ -35,8 +35,8 @@ export async function register(username, email, password) {
   return await res.json();
 }
 
-export async function createPoll(question, options, allowMultiple = false) {
-  const res = await fetch('/API/create_poll.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question, options, allow_multiple_choices: allowMultiple }) });
+export async function createPoll(question, options) {
+  const res = await fetch('/API/create_poll.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question, options }) });
   return await res.json();
 }
 

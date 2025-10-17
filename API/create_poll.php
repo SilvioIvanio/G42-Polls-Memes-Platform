@@ -10,7 +10,6 @@ if (empty($_SESSION['user_id'])) {
 $data = json_decode(file_get_contents('php://input'), true);
 $question = trim($data['question'] ?? '');
 $options = $data['options'] ?? [];
-$allowMultiple = isset($data['allow_multiple_choices']) ? (bool)$data['allow_multiple_choices'] : false;
 
 if (!$question || !is_array($options) || count($options) < 2) {
     http_response_code(400);
@@ -20,8 +19,8 @@ if (!$question || !is_array($options) || count($options) < 2) {
 
 try {
     $pdo->beginTransaction();
-    $stmt = $pdo->prepare('INSERT INTO polls (user_id, question, allow_multiple_choices) VALUES (?, ?, ?)');
-    $stmt->execute([$_SESSION['user_id'], $question, $allowMultiple ? 1 : 0]);
+    $stmt = $pdo->prepare('INSERT INTO polls (user_id, question) VALUES (?, ?)');
+    $stmt->execute([$_SESSION['user_id'], $question]);
     $poll_id = $pdo->lastInsertId();
 
     $stmtOpt = $pdo->prepare('INSERT INTO poll_options (poll_id, option_text) VALUES (?, ?)');

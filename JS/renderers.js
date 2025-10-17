@@ -8,7 +8,7 @@ export function renderSinglePoll(poll, container, keepIsolated = false) {
   div.className = 'poll';
   div.innerHTML = `
     <strong>${escapeHtml(poll.question)}</strong>
-    <div class="poll-meta">by ${escapeHtml(poll.author)} - ${poll.total_votes} votes ${poll.allow_multiple_choices ? '<span class="badge">Multiple Choice</span>' : ''}</div>
+    <div class="poll-meta">by ${escapeHtml(poll.author)} - ${poll.total_votes} votes </div>    
   `;
   
   const optionsContainer = document.createElement('div');
@@ -71,7 +71,7 @@ export function renderPolls(polls, container) {
     div.className = 'poll';
     div.innerHTML = `
       <strong>${escapeHtml(p.question)}</strong>
-      <div class="poll-meta">by ${escapeHtml(p.author)} - ${p.total_votes} votes ${p.allow_multiple_choices ? '<span class="badge">Multiple Choice</span>' : ''}</div>
+      <div class="poll-meta">by ${escapeHtml(p.author)} - ${p.total_votes} votes </div>
     `;
     
     const optionsContainer = document.createElement('div');

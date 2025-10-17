@@ -7,6 +7,36 @@
     box-shadow: var(--shadow-1);
 }
 
+.poll-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.poll-header strong {
+    flex-grow: 1;
+}
+
+.meme-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.content-delete-btn {
+    background: var(--color-danger);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent button from shrinking */
+    margin-left: 16px; /* Add space */
+}
+
 .poll-meta {
     color: var(--color-muted);
     font-size: 0.9rem;

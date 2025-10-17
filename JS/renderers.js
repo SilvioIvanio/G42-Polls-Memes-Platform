@@ -3,33 +3,29 @@ import { vote, unvote, deletePoll, deleteMeme } from './api.js';
 
 // --- Helper for attaching delete listeners ---
 function attachDeleteListeners(container, user) {
-    // Delete Poll buttons
-    container.querySelectorAll('.delete-poll-btn').forEach(btn => {
-        btn.addEventListener('click', async (e) => {
-            e.stopPropagation(); // Prevent other listeners from firing
-            const pollId = btn.dataset.pollId;
-            if (confirm('Are you sure you want to delete this poll?')) {
-                const result = await deletePoll(pollId);
-                if (result.success) {
-                    btn.closest('.poll').remove(); // Remove the poll element from the DOM
-                } else {
-                    alert(result.error || 'Failed to delete poll.');
-                }
-            }
-        });
-    });
-
-    // Delete Meme buttons
-    container.querySelectorAll('.delete-meme-btn').forEach(btn => {
+    container.querySelectorAll('.content-delete-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             e.stopPropagation();
+            const pollId = btn.dataset.pollId;
             const memeId = btn.dataset.memeId;
-            if (confirm('Are you sure you want to delete this meme?')) {
-                const result = await deleteMeme(memeId);
-                if (result.success) {
-                    btn.closest('.meme').remove(); // Remove the meme element from the DOM
-                } else {
-                    alert(result.error || 'Failed to delete meme.');
+
+            if (pollId) {
+                if (confirm('Are you sure you want to delete this poll?')) {
+                    const result = await deletePoll(pollId);
+                    if (result.success) {
+                        btn.closest('.poll').remove();
+                    } else {
+                        alert(result.error || 'Failed to delete poll.');
+                    }
+                }
+            } else if (memeId) {
+                if (confirm('Are you sure you want to delete this meme?')) {
+                    const result = await deleteMeme(memeId);
+                    if (result.success) {
+                        btn.closest('.meme').remove();
+                    } else {
+                        alert(result.error || 'Failed to delete meme.');
+                    }
                 }
             }
         });
@@ -44,13 +40,15 @@ export function renderSinglePoll(poll, container, keepIsolated = false, user = n
   div.className = 'poll';
 
   const deleteButtonHtml = (user && user.id === poll.user_id)
-    ? `<button class="delete-poll-btn content-delete-btn" data-poll-id="${poll.id}">Delete</button>`
+    ? `<button class="content-delete-btn" data-poll-id="${poll.id}">Delete</button>`
     : '';
 
   div.innerHTML = `
-    <strong>${escapeHtml(poll.question)}</strong>
+    <div class="poll-header">
+      <strong>${escapeHtml(poll.question)}</strong>
+      ${deleteButtonHtml}
+    </div>
     <div class="poll-meta">by ${escapeHtml(poll.author)} - ${poll.total_votes} votes</div>
-    ${deleteButtonHtml}
   `;
   
   const optionsContainer = document.createElement('div');
@@ -115,13 +113,15 @@ export function renderPolls(polls, container, user = null) {
     div.className = 'poll';
 
     const deleteButtonHtml = (user && user.id === p.user_id)
-        ? `<button class="delete-poll-btn content-delete-btn" data-poll-id="${p.id}">Delete</button>`
+        ? `<button class="content-delete-btn" data-poll-id="${p.id}">Delete</button>`
         : '';
 
     div.innerHTML = `
-      <strong>${escapeHtml(p.question)}</strong>
+      <div class="poll-header">
+        <strong>${escapeHtml(p.question)}</strong>
+        ${deleteButtonHtml}
+      </div>
       <div class="poll-meta">by ${escapeHtml(p.author)} - ${p.total_votes} votes</div>
-      ${deleteButtonHtml}
     `;
     
     const optionsContainer = document.createElement('div');
@@ -183,7 +183,7 @@ export function renderMemes(memes, container, user = null) {
     div.className = 'meme';
 
     const deleteButtonHtml = (user && user.id === m.user_id)
-        ? `<button class="delete-meme-btn content-delete-btn" data-meme-id="${m.id}">Delete</button>`
+        ? `<button class="content-delete-btn" data-meme-id="${m.id}">Delete</button>`
         : '';
 
     div.innerHTML = `<div class="meme-image-container"><img src="/uploads/${encodeURIComponent(m.filename)}" alt="${escapeHtml(m.caption || '')}"></div><div class="meme-info"><span>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</span>${deleteButtonHtml}</div>`;

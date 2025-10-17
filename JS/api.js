@@ -65,3 +65,13 @@ export async function updateProfile(data) {
   });
   return await res.json();
 }
+
+export async function deletePoll(poll_id) {
+  const res = await fetch('/API/delete_poll.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ poll_id }) });
+  return await res.json();
+}
+
+export async function deleteMeme(meme_id) {
+  const res = await fetch('/API/delete_meme.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ meme_id }) });
+  return await res.json();
+}

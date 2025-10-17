@@ -1,4 +1,4 @@
-import { fetchPollsData, fetchMemesData } from './api.js';
+import { fetchPollsData, fetchMemesData, getUserProfile } from './api.js';
 import { renderPolls, renderMemes, renderSinglePoll } from './renderers.js';
 import { attachLogout, highlightNav } from './nav.js';
 
@@ -13,17 +13,19 @@ async function init() {
   highlightNav();
   attachLogout();
 
+  const user = await getUserProfile();
+
   // load lists if containers exist
   const pollsEl = document.getElementById('polls');
   if (pollsEl) {
     const polls = await fetchPollsData();
-    renderPolls(polls, pollsEl);
+    renderPolls(polls, pollsEl, user);
   }
 
   const memesEl = document.getElementById('memes');
   if (memesEl) {
     const memes = await fetchMemesData();
-    renderMemes(memes, memesEl);
+    renderMemes(memes, memesEl, user);
   }
 
   // homepage-specific population
@@ -40,12 +42,12 @@ async function init() {
     
     // Featured poll card (index.html)
     if (featuredPollCard && polls && polls[0]) {
-      renderSinglePoll(polls[0], featuredPollCard, true);
+      renderSinglePoll(polls[0], featuredPollCard, true, user);
     }
     
     // Featured meme card (index.html)
     if (featuredMemeCard && memes && memes[0]) {
-      renderMemes([memes[0]], featuredMemeCard);
+      renderMemes([memes[0]], featuredMemeCard, user);
     }
     
     // Featured poll item (homepage.html) - with .featured-item class
@@ -53,7 +55,7 @@ async function init() {
       const preview = featuredPoll.querySelector('.preview.poll-preview');
       if (preview) {
         preview.innerHTML = '';
-        renderSinglePoll(polls[0], preview, true);
+        renderSinglePoll(polls[0], preview, true, user);
       }
     }
     
@@ -62,20 +64,20 @@ async function init() {
       const preview = featuredMeme.querySelector('.preview.meme-preview');
       if (preview) {
         preview.innerHTML = '';
-        renderMemes([memes[0]], preview);
+        renderMemes([memes[0]], preview, user);
       }
     }
     
     // Latest poll preview - isolated single poll in article card
     if (pollPreviewCard && polls && (polls[1] || polls[0])) {
       const p = polls[1] || polls[0];
-      renderSinglePoll(p, pollPreviewCard, true);
+      renderSinglePoll(p, pollPreviewCard, true, user);
     }
     
     // Latest meme preview - isolated single meme in article card
     if (memePreviewCard && memes && (memes[1] || memes[0])) {
       const m = memes[1] || memes[0];
-      renderMemes([m], memePreviewCard);
+      renderMemes([m], memePreviewCard, user);
     }
   }
 }

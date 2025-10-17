@@ -3,7 +3,7 @@ require_once 'db.php';
 session_start();
 
 // Fetch polls with options and vote counts
-$stmt = $pdo->query('SELECT p.id AS poll_id, p.question, p.created_at, u.username FROM polls p JOIN users u ON p.user_id = u.id ORDER BY p.created_at DESC LIMIT 50');
+$stmt = $pdo->query('SELECT p.id AS poll_id, p.user_id, p.question, p.created_at, u.username FROM polls p JOIN users u ON p.user_id = u.id ORDER BY p.created_at DESC LIMIT 50');
 $polls = $stmt->fetchAll();
 
 $out = [];
@@ -30,6 +30,7 @@ foreach ($polls as $p) {
     $totalVotes = array_sum(array_column($options, 'votes'));
     $out[] = [
         'id' => $p['poll_id'],
+        'user_id' => $p['user_id'],
         'question' => $p['question'],
         'author' => $p['username'],
         'created_at' => $p['created_at'],

@@ -62,4 +62,9 @@
   .container { 
     padding: 0 12px; 
     }
+        .nav {
+        font-size: 12px;
+        padding: 0.3rem 0.5rem;
+         
+    }
 }

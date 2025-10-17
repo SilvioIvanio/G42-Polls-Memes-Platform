@@ -129,7 +129,7 @@ export function renderMemes(memes, container) {
   for (const m of memes) {
     const div = document.createElement('div');
     div.className = 'meme';
-    div.innerHTML = `<div><img src="/uploads/${encodeURIComponent(m.filename)}" alt="${escapeHtml(m.caption || '')}" style="max-width:100%; height:auto;"></div><div>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</div>`;
+    div.innerHTML = `<div class="meme-image-container"><img src="/uploads/${encodeURIComponent(m.filename)}" alt="${escapeHtml(m.caption || '')}"></div><div>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</div>`;
     container.appendChild(div);
   }
 }

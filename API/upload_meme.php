@@ -21,7 +21,7 @@ $file = $_FILES['meme'];
 $allowed = ['image/png','image/jpeg','image/jpg','image/gif'];
 if (!in_array($file['type'], $allowed)) {
     http_response_code(400);
-    echo json_encode(['error' => 'Invalid file type']);
+    echo json_encode(['success' => false, 'error' => 'Invalid file type. Please upload a JPG, PNG, or GIF.']);
     exit;
 }
 

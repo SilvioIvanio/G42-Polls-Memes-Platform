@@ -1,3 +1,6 @@
+import { renderPolls, renderMemes } from './renderers.js';
+import { escapeHtml } from './utils.js';
+
 async function fetchPollsData() {
   const res = await fetch('/api/fetch_polls.php');
   return await res.json();
@@ -7,23 +10,7 @@ async function loadPolls() {
   const polls = await fetchPollsData();
   const el = document.getElementById('polls');
   if (!el) return;
-  el.innerHTML = '';
-  for (const p of polls) {
-    const div = document.createElement('div');
-    div.className = 'poll';
-    div.innerHTML = `<strong>${escapeHtml(p.question)}</strong><div>by ${escapeHtml(p.author)} - ${p.total_votes} votes</div>`;
-    for (const o of p.options) {
-      const btn = document.createElement('button');
-      btn.textContent = `${o.option_text} (${o.votes})`;
-      btn.onclick = async () => {
-        const r = await fetch('/api/vote.php', { method: 'POST', body: JSON.stringify({ poll_id: p.id, option_id: o.id }) });
-        const j = await r.json();
-        if (j.success) { loadPolls(); } else { alert(j.error || 'Vote failed'); }
-      };
-      div.appendChild(btn);
-    }
-    el.appendChild(div);
-  }
+  renderPolls(polls, el);
 }
 
 async function fetchMemesData() {
@@ -35,16 +22,10 @@ async function loadMemes() {
   const memes = await fetchMemesData();
   const el = document.getElementById('memes');
   if (!el) return;
-  el.innerHTML = '';
-  for (const m of memes) {
-    const div = document.createElement('div');
-    div.className = 'meme';
-    div.innerHTML = `<div><img src="/uploads/${encodeURIComponent(m.filename)}" alt="${escapeHtml(m.caption || '')}" style="max-width:100%; height:auto;"></div><div>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</div>`;
-    el.appendChild(div);
-  }
+  renderMemes(memes, el);
 }
 
-// Populate homepage-specific elements (featured and preview sections)
+// Helps to populate homepage-specific elements (featured and preview sections)
 async function populateHomepage() {
   const featuredPollEl = document.getElementById('featuredPoll');
   const featuredMemeEl = document.getElementById('featuredMeme');
@@ -54,19 +35,21 @@ async function populateHomepage() {
 
   const [polls, memes] = await Promise.all([fetchPollsData(), fetchMemesData()]);
 
-  // Featured poll: first poll
+  // Featured poll: includes the first poll with full interactive display
   if (featuredPollEl) {
     const p = polls && polls[0];
     if (p) {
-      featuredPollEl.querySelector('.question')?.remove();
-      featuredPollEl.querySelector('.choices')?.remove();
-      featuredPollEl.innerHTML = `<h3>Featured Poll</h3><div class="preview poll-preview"><strong>${escapeHtml(p.question)}</strong><div class="meta">by ${escapeHtml(p.author)} — ${p.total_votes} votes</div></div>`;
+      featuredPollEl.innerHTML = '<h3>Featured Poll</h3>';
+      const pollContainer = document.createElement('div');
+      pollContainer.className = 'preview poll-preview';
+      renderPolls([p], pollContainer);
+      featuredPollEl.appendChild(pollContainer);
     } else {
-      featuredPollEl.querySelector('.question')?.textContent = 'No featured poll available.';
+      featuredPollEl.innerHTML = '<h3>Featured Poll</h3><div class="preview poll-preview">No featured poll available.</div>';
     }
   }
 
-  // Featured meme: first meme
+  // Featured meme: displays the first meme
   if (featuredMemeEl) {
     const m = memes && memes[0];
     const container = featuredMemeEl.querySelector('.preview.meme-preview');
@@ -77,11 +60,11 @@ async function populateHomepage() {
     }
   }
 
-  // Preview cards
+  // Preview cards - latest poll with full interactive display
   if (pollPreviewCard) {
     const p = polls && polls[1] || polls && polls[0];
     if (p) {
-      pollPreviewCard.innerHTML = `<strong>${escapeHtml(p.question)}</strong><div class="meta">by ${escapeHtml(p.author)} — ${p.total_votes} votes</div>`;
+      renderPolls([p], pollPreviewCard);
     } else {
       pollPreviewCard.textContent = 'No poll previews.';
     }
@@ -90,15 +73,11 @@ async function populateHomepage() {
   if (memePreviewCard) {
     const m = memes && memes[1] || memes && memes[0];
     if (m) {
-      memePreviewCard.innerHTML = `<div><img src="/uploads/${encodeURIComponent(m.filename)}" alt="${escapeHtml(m.caption || '')}" style="max-width:100%;height:auto;"></div><div>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</div>`;
+      renderMemes([m], memePreviewCard);
     } else {
       memePreviewCard.textContent = 'No meme previews.';
     }
   }
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
 // Run page-specific loaders

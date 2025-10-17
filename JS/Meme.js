@@ -1,6 +1,15 @@
 import { uploadMeme } from './api.js';
 import { validateMeme } from './validation.js';
 
+// Apply saved theme on page load
+function applyTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+// Initialize theme
+applyTheme();
+
 console.log('meme.js loaded!');
 
 const memeForm = document.getElementById('memeForm');

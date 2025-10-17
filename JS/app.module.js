@@ -1,5 +1,5 @@
 import { fetchPollsData, fetchMemesData } from './api.js';
-import { renderPolls, renderMemes } from './renderers.js';
+import { renderPolls, renderMemes, renderSinglePoll } from './renderers.js';
 import { attachLogout, highlightNav } from './nav.js';
 
 // Apply saved theme on page load
@@ -27,27 +27,55 @@ async function init() {
   }
 
   // homepage-specific population
-  const featuredPollEl = document.getElementById('featuredPoll');
-  const featuredMemeEl = document.getElementById('featuredMeme');
+  // Featured and preview sections with isolated single polls/memes in article cards
+  const featuredPollCard = document.getElementById('featuredPollCard');
+  const featuredMemeCard = document.getElementById('featuredMemeCard');
+  const featuredPoll = document.getElementById('featuredPoll');
+  const featuredMeme = document.getElementById('featuredMeme');
   const pollPreviewCard = document.getElementById('pollPreviewCard');
   const memePreviewCard = document.getElementById('memePreviewCard');
-  if (featuredPollEl || featuredMemeEl || pollPreviewCard || memePreviewCard) {
+  
+  if (featuredPollCard || featuredMemeCard || featuredPoll || featuredMeme || pollPreviewCard || memePreviewCard) {
     const [polls, memes] = await Promise.all([fetchPollsData(), fetchMemesData()]);
-    if (featuredPollEl) {
-      const p = polls && polls[0];
-      if (p) featuredPollEl.innerHTML = `<h3>Featured Poll</h3><div class="preview poll-preview"><strong>${p.question}</strong><div class="meta">by ${p.author} — ${p.total_votes} votes</div></div>`;
+    
+    // Featured poll card (index.html)
+    if (featuredPollCard && polls && polls[0]) {
+      renderSinglePoll(polls[0], featuredPollCard, true);
     }
-    if (featuredMemeEl) {
-      const m = memes && memes[0];
-      if (m) featuredMemeEl.querySelector('.preview.meme-preview').innerHTML = `<div class="meme-img"><img src="/uploads/${encodeURIComponent(m.filename)}" style="max-width:100%;height:auto;"></div><p class="caption">${m.caption}</p><div class="meta">by ${m.username}</div>`;
+    
+    // Featured meme card (index.html)
+    if (featuredMemeCard && memes && memes[0]) {
+      renderMemes([memes[0]], featuredMemeCard);
     }
-    if (pollPreviewCard) {
-      const p = polls && (polls[1] || polls[0]);
-      if (p) pollPreviewCard.innerHTML = `<strong>${p.question}</strong><div class="meta">by ${p.author} — ${p.total_votes} votes</div>`;
+    
+    // Featured poll item (homepage.html) - with .featured-item class
+    if (featuredPoll && polls && polls[0]) {
+      const preview = featuredPoll.querySelector('.preview.poll-preview');
+      if (preview) {
+        preview.innerHTML = '';
+        renderSinglePoll(polls[0], preview, true);
+      }
     }
-    if (memePreviewCard) {
-      const m = memes && (memes[1] || memes[0]);
-      if (m) memePreviewCard.innerHTML = `<div><img src="/uploads/${encodeURIComponent(m.filename)}" style="max-width:100%;height:auto;"></div><div>${m.caption} — ${m.username}</div>`;
+    
+    // Featured meme item (homepage.html) - with .featured-item class
+    if (featuredMeme && memes && memes[0]) {
+      const preview = featuredMeme.querySelector('.preview.meme-preview');
+      if (preview) {
+        preview.innerHTML = '';
+        renderMemes([memes[0]], preview);
+      }
+    }
+    
+    // Latest poll preview - isolated single poll in article card
+    if (pollPreviewCard && polls && (polls[1] || polls[0])) {
+      const p = polls[1] || polls[0];
+      renderSinglePoll(p, pollPreviewCard, true);
+    }
+    
+    // Latest meme preview - isolated single meme in article card
+    if (memePreviewCard && memes && (memes[1] || memes[0])) {
+      const m = memes[1] || memes[0];
+      renderMemes([m], memePreviewCard);
     }
   }
 }

@@ -17,13 +17,26 @@ if (!$poll_id || !$option_id) {
     exit;
 }
 
-// Check if user has already voted on this poll
-$stmt = $pdo->prepare('SELECT COUNT(*) FROM votes WHERE poll_id = ? AND user_id = ?');
-$stmt->execute([$poll_id, $_SESSION['user_id']]);
-if ($stmt->fetchColumn() > 0) {
-    http_response_code(400);
-    echo json_encode(['error' => 'You have already voted in this poll.']);
+// Check if poll allows multiple votes
+$stmt = $pdo->prepare('SELECT allow_multiple_choices FROM polls WHERE id = ?');
+$stmt->execute([$poll_id]);
+$poll = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$poll) {
+    http_response_code(404);
+    echo json_encode(['error' => 'Poll not found']);
     exit;
+}
+
+// If multiple votes are not allowed, check if user has already voted
+if (!$poll['allow_multiple_choices']) {
+    $stmt = $pdo->prepare('SELECT COUNT(*) FROM votes WHERE poll_id = ? AND user_id = ?');
+    $stmt->execute([$poll_id, $_SESSION['user_id']]);
+    if ($stmt->fetchColumn() > 0) {
+        http_response_code(400);
+        echo json_encode(['error' => 'You have already voted in this poll.']);
+        exit;
+    }
 }
 
 // Insert the new vote

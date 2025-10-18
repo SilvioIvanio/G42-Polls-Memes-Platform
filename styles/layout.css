@@ -2,50 +2,17 @@
 
 .nav { 
     background: var(--color-header-bg);
-    color: white; 
+    color: #fff; 
     padding: 12px 20px; 
     display: flex; 
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.nav h1 {
-    margin: 0;
-    font-size: 1.8rem;
-}
-
-.nav-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .nav a { 
-    color: white; 
-    margin-left: 0;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-.nav a i {
-    font-size: 1.1em;
-}
-
-.nav a.active {
-    background: rgba(255, 255, 255, 0.2);
-    font-weight: 600;
+    color: #fff; 
+    margin-left: 10px; 
+    text-decoration: none; 
 }
 
 .container { 
@@ -58,30 +25,6 @@
     max-width: 600px; 
 }
 
-
-.featured-section {
-  margin-bottom: 30px;
-}
-
-.featured-section h2 {
-  margin-bottom: 15px;
-  color: var(--color-text);
-}
-
-.featured-card, .preview-card {
-  margin-bottom: 20px;
-  display: block;
-  width: 100%;
-}
-
-.featured-card .poll, .preview-card .poll {
-  margin: 0;
-}
-
-.featured-card .meme, .preview-card .meme {
-  margin: 0;
-}
-
 @media (max-width: 600px) {
   .container { 
     padding: 0 12px; 
@@ -91,4 +34,23 @@
         padding: 0.3rem 0.5rem;
          
     }
+}
+
+/* Create Page Layout */
+.create-page-layout {
+    display: flex;
+    gap: 24px; /* Add some space between the cards */
+    align-items: flex-start;
+}
+
+.create-page-layout > .form-card {
+    flex: 1; /* Make both cards take up equal space */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: var(--color-muted);
 }

@@ -75,3 +75,8 @@ export async function deleteMeme(meme_id) {
   const res = await fetch('/API/delete_meme.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ meme_id }) });
   return await res.json();
 }
+
+export async function updateMeme(meme_id, caption) {
+  const res = await fetch('/API/update_meme.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ meme_id, caption }) });
+  return await res.json();
+}

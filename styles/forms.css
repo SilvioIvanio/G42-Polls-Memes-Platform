@@ -253,3 +253,90 @@ form button[type="submit"]:active {
     font-weight: 500;
     cursor: pointer;
 }
+
+/* Responsive styles for mobile and tablet */
+@media (max-width: 768px) {
+    .create-header h1,
+    .page-header h1 {
+        font-size: 1.5rem;
+        gap: 8px;
+    }
+    
+    .create-header p,
+    .page-header p {
+        font-size: 0.9rem;
+    }
+    
+    .create-header,
+    .page-header {
+        padding: 20px 16px;
+        margin-bottom: 24px;
+    }
+    
+    .form-card {
+        padding: 24px 20px;
+    }
+    
+    .divider {
+        margin: 24px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .create-header h1,
+    .page-header h1 {
+        font-size: 1.25rem;
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .create-header h1 i,
+    .page-header h1 i {
+        font-size: 1.5rem;
+    }
+    
+    .create-header p,
+    .page-header p {
+        font-size: 0.85rem;
+    }
+    
+    .create-header,
+    .page-header {
+        padding: 16px 12px;
+        margin-bottom: 20px;
+    }
+    
+    .form-card {
+        padding: 20px 16px;
+        margin-bottom: 16px;
+    }
+    
+    form label {
+        font-size: 0.9rem;
+    }
+    
+    form input,
+    form textarea,
+    form button {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+    }
+    
+    .file-upload-label {
+        padding: 30px 16px;
+    }
+    
+    .file-upload-label i {
+        font-size: 2.5rem;
+    }
+    
+    .divider {
+        margin: 20px 0;
+    }
+    
+    .btn-primary,
+    form button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

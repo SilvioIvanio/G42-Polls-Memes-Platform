@@ -12,6 +12,25 @@ applyTheme();
 
 console.log('meme.js loaded!');
 
+// File upload feedback
+const fileInput = document.getElementById('memeFileInput');
+const fileLabel = document.getElementById('fileLabel');
+const fileText = document.getElementById('fileText');
+const fileSelected = document.getElementById('fileSelected');
+const fileName = document.getElementById('fileName');
+
+if (fileInput) {
+    fileInput.addEventListener('change', function(e) {
+        if (this.files && this.files.length > 0) {
+            const file = this.files[0];
+            // Show selected file indicator
+            fileLabel.style.display = 'none';
+            fileSelected.style.display = 'flex';
+            fileName.textContent = file.name;
+        }
+    });
+}
+
 const memeForm = document.getElementById('memeForm');
 console.log('memeForm element:', memeForm);
 
@@ -31,5 +50,14 @@ if (memeForm) {
         const j = await uploadMeme(fd);
         console.log('Upload response:', j);
         if (msg) msg.innerText = j.success ? 'Meme uploaded' : (j.error || 'Failed');
+        
+        // Reset file input display on success
+        if (j.success) {
+            memeForm.reset();
+            if (fileLabel && fileSelected) {
+                fileLabel.style.display = 'flex';
+                fileSelected.style.display = 'none';
+            }
+        }
     });
 }

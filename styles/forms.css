@@ -179,6 +179,35 @@ form button[type="submit"]:active {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+/* File selected indicator */
+.file-selected {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--color-success);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+
+.file-selected i {
+    font-size: 1.2rem;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Form card heading icons */
 .form-card h2 {
     display: flex;

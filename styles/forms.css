@@ -1,7 +1,8 @@
 /* here we have form related styles */
 
 /* Create page header */
-.create-header {
+.create-header,
+.page-header {
     text-align: center;
     margin-bottom: 32px;
     padding: 24px;
@@ -13,7 +14,8 @@
     box-shadow: 0 4px 16px rgba(100, 149, 237, 0.1);
 }
 
-.create-header h1 {
+.create-header h1,
+.page-header h1 {
     margin: 0 0 8px 0;
     font-size: 2rem;
     display: flex;
@@ -23,11 +25,13 @@
     color: var(--color-text-primary);
 }
 
-.create-header h1 i {
+.create-header h1 i,
+.page-header h1 i {
     color: #6495ed;
 }
 
-.create-header p {
+.create-header p,
+.page-header p {
     margin: 0;
     font-size: 1rem;
     color: var(--color-text-secondary);

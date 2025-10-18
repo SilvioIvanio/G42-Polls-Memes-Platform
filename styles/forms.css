@@ -1,9 +1,190 @@
 /* here we have form related styles */
 
+/* Create page header */
+.create-header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: rgba(100, 149, 237, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 2px solid rgba(100, 149, 237, 0.3);
+    box-shadow: 0 4px 16px rgba(100, 149, 237, 0.1);
+}
+
+.create-header h1 {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--color-text-primary);
+}
+
+.create-header h1 i {
+    color: #6495ed;
+}
+
+.create-header p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
 form label {
     display: block; 
-    margin-bottom: 6px; 
-    font-weight: 600; 
+    margin-bottom: 8px; 
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-primary);
+}
+
+form label i {
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+/* Enhanced input styling */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Primary button styling */
+.btn-primary,
+form button[type="submit"] {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.btn-primary:hover,
+form button[type="submit"]:hover {
+    background: #7b2cbf;
+}
+
+.btn-primary:active,
+form button[type="submit"]:active {
+    background: #6a1ba8;
+}
+
+/* A much more elegant divider */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 32px 0;
+    height: 1px;
+    background: var(--color-border);
+}
+
+.divider span {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    top: -12px;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+}
+
+/* File upload styling */
+.file-upload-wrapper {
+    position: relative;
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px 20px;
+    border: 2px dashed var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.file-upload-label:hover {
+    border-color: var(--color-primary);
+    background: rgba(155, 89, 182, 0.05);
+}
+
+.file-upload-label i {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+.file-upload-label span {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.file-upload-wrapper input[type="file"]:focus + .file-upload-label {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.1);
+}
+
+/* Form card heading icons */
+.form-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-primary);
+}
+
+.form-card h2 i {
+    color: var(--color-primary);
 }
 
 #RegisterLink {

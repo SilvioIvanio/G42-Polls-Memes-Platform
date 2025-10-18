@@ -19,29 +19,48 @@
   </header>
 <body>
   <main class="container small">
-    <section class="form-card" aria-labelledby="pollHeading">
-      <h2 id="pollHeading">Create a Poll</h2>
-      <form id="pollForm">
-        <label>Question</label>
-        <input name="question" required>
-        <label>Options (comma separated)</label>
-        <input name="options" required placeholder="Option A, Option B, Option C">
+    <div class="create-header">
+      <h1><i class="fa-solid fa-wand-magic-sparkles"></i> Create Content</h1>
+      <p>Why not share your thoughts with a poll get your peers laughing with a meme?!</p>
+    </div>
 
-        
-        <button type="submit">Create Poll</button>
+    <section class="form-card" aria-labelledby="pollHeading">
+      <h2 id="pollHeading"><i class="fa-solid fa-chart-bar"></i> Create a Poll</h2>
+      <form id="pollForm">
+        <div class="form-group">
+          <label><i class="fa-solid fa-question-circle"></i> Question</label>
+          <input name="question" required placeholder="What's your question?">
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-list"></i> Options (comma separated)</label>
+          <input name="options" required placeholder="Option A, Option B, Option C">
+        </div>
+        <button type="submit" class="btn-primary"><i class="fa-solid fa-plus"></i> Create Poll</button>
       </form>
     </section>
 
-    <hr>
+    <div class="divider">
+      <span>OR</span>
+    </div>
 
     <section class="form-card" aria-labelledby="memeHeading">
-      <h2 id="memeHeading">Upload Meme</h2>
+      <h2 id="memeHeading"><i class="fa-solid fa-image"></i> Upload Meme</h2>
       <form id="memeForm" enctype="multipart/form-data">
-        <label>Image</label>
-        <input type="file" name="meme" accept="image/*" required>
-        <label>Caption (optional)</label>
-        <input name="caption">
-        <button type="submit">Upload Meme</button>
+        <div class="form-group">
+          <label><i class="fa-solid fa-upload"></i> Image</label>
+          <div class="file-upload-wrapper">
+            <input type="file" name="meme" accept="image/*" required id="memeFileInput">
+            <label for="memeFileInput" class="file-upload-label">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>Choose an image or drag it here</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-comment"></i> Caption (optional)</label>
+          <input name="caption" placeholder="Add a funny caption...">
+        </div>
+        <button type="submit" class="btn-primary"><i class="fa-solid fa-upload"></i> Upload Meme</button>
       </form>
     </section>
 

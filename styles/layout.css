@@ -2,7 +2,7 @@
 
 .nav { 
     background: var(--color-header-bg);
-    color: #fff; 
+    color: white; 
     padding: 12px 20px; 
     display: flex; 
     flex-direction: column;
@@ -23,7 +23,7 @@
 }
 
 .nav a { 
-    color: #fff; 
+    color: white; 
     margin-left: 0;
     text-decoration: none;
     transition: all 0.3s ease;

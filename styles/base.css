@@ -12,7 +12,7 @@ a { color: inherit; }
 
 button { 
     background: var(--color-primary);
-    color: #fff; 
+    color: white; 
     border: none; 
     padding: 8px 12px; 
     border-radius: 15px; 

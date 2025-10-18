@@ -12,7 +12,27 @@
 .nav a { 
     color: #fff; 
     margin-left: 10px; 
-    text-decoration: none; 
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav a i {
+    font-size: 1.1em;
+}
+
+.nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
 }
 
 .container { 
@@ -25,7 +45,7 @@
     max-width: 600px; 
 }
 
-/* Featured sections */
+
 .featured-section {
   margin-bottom: 30px;
 }
@@ -35,7 +55,7 @@
   color: var(--color-text);
 }
 
-/* Featured and preview article cards */
+
 .featured-card, .preview-card {
   padding: 20px;
   background: var(--color-surface);
@@ -49,7 +69,7 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-/* Ensure content inside article cards looks good */
+
 .featured-card .poll, .preview-card .poll {
   margin: 0;
 }

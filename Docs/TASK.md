@@ -19,14 +19,14 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 
 - [x]  Step 1: Project kickoff & proposal submission
 - [x]  Step 2: Requirements document
-- [ ]  Step 3: HTML skeleton (**Checkpoint 1**)
-- [ ]  Step 4: Technical design
-- [ ]  Step 5: Static HTML/CSS prototype
-- [ ]  Step 6: JavaScript interactivity (**Checkpoint 2**)
-- [ ]  Step 7: Backend basics (PHP + DB)
-- [ ]  Step 8: DB integration & advanced features (**Checkpoint 3**)
-- [ ]  Step 9: Testing & debugging
-- [ ]  Step 10: UI polish & accessibility
+- [x]  Step 3: HTML skeleton (**Checkpoint 1**)
+- [x]  Step 4: Technical design
+- [x]  Step 5: Static HTML/CSS prototype
+- [x]  Step 6: JavaScript interactivity (**Checkpoint 2**)
+- [x]  Step 7: Backend basics (PHP + DB)
+- [x]  Step 8: DB integration & advanced features (**Checkpoint 3**)
+- [x]  Step 9: Testing & debugging
+- [x]  Step 10: UI polish & accessibility
 - [ ]  Step 11: Documentation & deployment
 - [ ]  Step 12: Final Project Presentations (**graded across two weeks**)
 - [ ]  Step 13: Test 2 (individual assessment)

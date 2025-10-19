@@ -86,24 +86,4 @@ Follow these steps to get the project running on your local machine.
     This will start a local web server on port 8000.
 
 2.  **Access the application.** Open your web browser and navigate to the login page to start:
-    - **http://127.0.0.1:8000/HTML/login.html**
-
-
-Recommendations
----------------
-- Add a dedicated endpoint for server-driven featured selection if curated content is needed.
-- Enforce server-side protection for creation/upload endpoints so only authenticated users may create polls or upload memes.
-- Consider adding automated tests (unit/integration) and a linting pipeline (ESLint + Prettier) for consistent code quality.
-
-Contributors
-------------
-This repository is maintained by multiple contributors. Add a `CONTRIBUTORS.md` or `AUTHORS` file to document team members.
-
-JS modularization
------------------
-The frontend codebase has been refactored into focused ES modules to improve maintainability and allow easier testing. Key modules are listed above under "Client-side modules."  
-
-Converted page scripts
-----------------------
-- Page-specific scripts (login/register, poll creation, meme upload) were converted to ES modules and now consume `JS/api.js` and shared helpers.
-
+    - **http://127.0.0.1:8000/HTML/login.html** 

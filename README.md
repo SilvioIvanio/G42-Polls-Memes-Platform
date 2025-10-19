@@ -38,18 +38,56 @@ Server API behavior
 - `register.php` — registers a new user and returns session info on success.
 - `logout.php` — destroys the server session and returns a success response.
 
-Running the project locally
---------------------------
-1. From the project root, start a PHP development server (or use Live Server in VS Code):
+## Getting Started: Local Development Setup
 
-```powershell
-php -S 127.0.0.1:8000
-```
+Follow these steps to get the project running on your local machine.
 
-2. Open the application in a browser:
+### Prerequisites
 
-- http://127.0.0.1:8000/HTML/index.html — overview (polls + memes)
-- http://127.0.0.1:8000/HTML/homepage.html — homepage with featured content
+- PHP 8.0 or higher
+- MySQL 5.7 or higher
+- A web browser
+
+### 1. Database Setup
+
+1.  **Start your MySQL server.**
+
+2.  **Create the database.** Using a tool like TablePlus, phpMyAdmin, or the MySQL command line, create a new database named `campus_pulse`.
+    ```sql
+    CREATE DATABASE campus_pulse;
+    ```
+
+3.  **Import the database schema.** Import the `db.sql` file located in the project root into your new `campus_pulse` database. This will create all the necessary tables.
+    ```bash
+    # Example using the command line from the project root:
+    mysql -u your_username -p campus_pulse < db.sql
+    ```
+
+### 2. Application Configuration
+
+1.  Navigate to the `API/` directory.
+
+2.  Open the `config.php` file in a text editor.
+
+3.  Update the database credentials to match your local MySQL setup:
+    ```php
+    define('DB_HOST', '127.0.0.1:3306'); // Ensure the host and port are correct
+    define('DB_NAME', 'campus_pulse');
+    define('DB_USER', 'root');     // Your MySQL username
+    define('DB_PASS', '');         // Your MySQL password
+    ```
+
+### 3. Running the Application
+
+1.  **Start the PHP web server.** From the **project root directory**, run the following command in your terminal:
+    ```bash
+    php -S 127.0.0.1:8000
+    ```
+    This will start a local web server on port 8000.
+
+2.  **Access the application.** Open your web browser and navigate to the login page to start:
+    - **http://127.0.0.1:8000/HTML/login.html**
+
 
 Recommendations
 ---------------

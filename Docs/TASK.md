@@ -28,9 +28,6 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 - [x]  Step 9: Testing & debugging
 - [x]  Step 10: UI polish & accessibility
 - [ ]  Step 11: Documentation & deployment
-- [ ]  Step 12: Final Project Presentations (**graded across two weeks**)
-- [ ]  Step 13: Test 2 (individual assessment)
-- [ ]  Step 14: All marks submitted (**14 November 2025**)
 
 ## **Project Tools & Workflow**
 

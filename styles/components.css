@@ -347,6 +347,10 @@
     background-color: var(--color-danger);
 }
 
+.delete-btn:hover {
+    background-color: red;
+}
+
 @media (max-width: 600px) {
     .setting-item {
         flex-direction: column;

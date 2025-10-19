@@ -27,7 +27,7 @@ A social platform for polls (e.g., “best lecturer?”) and memes. HTML for pol
 - [x]  Step 8: DB integration & advanced features (**Checkpoint 3**)
 - [x]  Step 9: Testing & debugging
 - [x]  Step 10: UI polish & accessibility
-- [ ]  Step 11: Documentation & deployment
+- [x]  Step 11: Documentation & deployment
 
 ## **Project Tools & Workflow**
 

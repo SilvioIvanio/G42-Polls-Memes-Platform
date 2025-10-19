@@ -13,7 +13,6 @@ try {
 } catch (PDOException $e) {
     http_response_code(500);
     // For debugging during deployment, it's helpful to see the actual error.
-    // In a real production environment, you would log this error to a file instead of showing it to the user.
     echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
     exit;
 }

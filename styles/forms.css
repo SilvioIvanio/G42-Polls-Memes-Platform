@@ -220,15 +220,18 @@ form button[type="submit"]:active {
     color: var(--color-primary);
 }
 
-#RegisterLink {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
+.lr-link {
+    color: var(--color-primary);
     text-decoration: none;
+    font-weight: 500;
+}
+
+.lr-link:hover {
+    text-decoration: underline;
+}
+
+.mb-1 {
+    margin-left: 20px;
 }
 
 #msg {

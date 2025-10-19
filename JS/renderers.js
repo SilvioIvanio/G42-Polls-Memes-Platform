@@ -1,41 +1,35 @@
 import { escapeHtml } from './utils.js';
 import { vote, unvote, deletePoll, deleteMeme, updateMeme } from './api.js';
 
-// --- Helper for attaching action listeners ---
 function attachActionListeners(container, user, polls, memes) {
-    // Delete Poll buttons
-    container.querySelectorAll('.delete-poll-btn').forEach(btn => {
+    container.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             e.stopPropagation();
             const pollId = btn.dataset.pollId;
-            if (confirm('Are you sure you want to delete this poll?')) {
-                const result = await deletePoll(pollId);
-                if (result.success) {
-                    btn.closest('.poll').remove();
-                } else {
-                    alert(result.error || 'Failed to delete poll.');
-                }
-            }
-        });
-    });
-
-    // Delete Meme buttons
-    container.querySelectorAll('.delete-meme-btn').forEach(btn => {
-        btn.addEventListener('click', async (e) => {
-            e.stopPropagation();
             const memeId = btn.dataset.memeId;
-            if (confirm('Are you sure you want to delete this meme?')) {
-                const result = await deleteMeme(memeId);
-                if (result.success) {
-                    btn.closest('.meme').remove();
-                } else {
-                    alert(result.error || 'Failed to delete meme.');
+
+            if (pollId) {
+                if (confirm('Are you sure you want to delete this poll?')) {
+                    const result = await deletePoll(pollId);
+                    if (result.success) {
+                        btn.closest('.poll').remove();
+                    } else {
+                        alert(result.error || 'Failed to delete poll.');
+                    }
+                }
+            } else if (memeId) {
+                if (confirm('Are you sure you want to delete this meme?')) {
+                    const result = await deleteMeme(memeId);
+                    if (result.success) {
+                        btn.closest('.meme').remove();
+                    } else {
+                        alert(result.error || 'Failed to delete meme.');
+                    }
                 }
             }
         });
     });
 
-    // Edit Meme buttons
     container.querySelectorAll('.edit-meme-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -46,10 +40,8 @@ function attachActionListeners(container, user, polls, memes) {
             if (!meme || !infoDiv) return;
 
             const originalContent = infoDiv.innerHTML;
-            const currentCaption = meme.caption || '';
-
             infoDiv.innerHTML = `
-                <input type="text" class="caption-edit-input" value="${escapeHtml(currentCaption)}">
+                <input type="text" class="caption-edit-input" value="${escapeHtml(meme.caption || '')}">
                 <div class="edit-actions">
                     <button class="save-caption-btn">Save</button>
                     <button class="cancel-caption-btn">Cancel</button>
@@ -74,15 +66,13 @@ function attachActionListeners(container, user, polls, memes) {
     });
 }
 
-
-// Render a single poll (for featured/preview sections that should stay isolated)
 export function renderSinglePoll(poll, container, keepIsolated = false, user = null) {
   container.innerHTML = '';
   const div = document.createElement('div');
   div.className = 'poll';
 
   const deleteButtonHtml = (user && user.id === poll.user_id)
-    ? `<button class="delete-poll-btn" data-poll-id="${poll.id}">Delete</button>`
+    ? `<button class="delete-btn" data-poll-id="${poll.id}">Delete</button>`
     : '';
 
   div.innerHTML = `
@@ -119,7 +109,6 @@ export function renderSinglePoll(poll, container, keepIsolated = false, user = n
   
   attachActionListeners(container, user, [poll], []);
 
-  // Attach event listeners that only refresh THIS poll
   if (keepIsolated) {
     container.querySelectorAll('.toggle-vote-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
@@ -152,7 +141,7 @@ export function renderPolls(polls, container, user = null) {
     div.className = 'poll';
 
     const deleteButtonHtml = (user && user.id === p.user_id)
-        ? `<button class="delete-poll-btn" data-poll-id="${p.id}">Delete</button>`
+        ? `<button class="delete-btn" data-poll-id="${p.id}">Delete</button>`
         : '';
 
     div.innerHTML = `
@@ -190,7 +179,6 @@ export function renderPolls(polls, container, user = null) {
   
   attachActionListeners(container, user, polls, []);
 
-  // Attach event listeners for toggle vote buttons (refreshes all polls in container)
   container.querySelectorAll('.toggle-vote-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
       const pollId = btn.dataset.pollId;
@@ -218,7 +206,7 @@ export function renderMemes(memes, container, user = null) {
     div.className = 'meme';
 
     const deleteButtonHtml = (user && user.id === m.user_id)
-        ? `<button class="delete-meme-btn" data-meme-id="${m.id}">Delete</button>`
+        ? `<button class="delete-btn" data-meme-id="${m.id}">Delete</button>`
         : '';
     const editButtonHtml = (user && user.id === m.user_id)
         ? `<button class="edit-meme-btn" data-meme-id="${m.id}">Edit</button>`
@@ -226,7 +214,9 @@ export function renderMemes(memes, container, user = null) {
 
     div.innerHTML = `
         <div class="meme-image-container"><img src="/uploads/${encodeURIComponent(m.filename)}" alt="${escapeHtml(m.caption || '')}"></div>
-        <div class="meme-info"><span>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</span></div>
+        <div class="meme-info">
+            <span>${escapeHtml(m.caption || '')} — ${escapeHtml(m.username)}</span>
+        </div>
         ${editButtonHtml}
         ${deleteButtonHtml}
     `;

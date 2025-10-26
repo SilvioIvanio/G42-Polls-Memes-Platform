@@ -1,13 +1,19 @@
 services:
-  # This is the name of the web service (the PHP/Apache server)
+  # This is the definition for your PHP web service
   - type: web
     name: campus-pulse-app
-    env: php # Tell Render to use its native PHP environment
+    env: php
     plan: free
+    
+    # --- The Build & Start Commands Section ---
+    # These must be nested like this.
+    build:
       command: "composer install"
     startCommand: "heroku-php-apache2 ."
+
+    # --- The Environment Variables Section ---
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: campus-pulse-db # This must match the name of the database on Render
+          name: campus-pulse-db
           property: internalUrl

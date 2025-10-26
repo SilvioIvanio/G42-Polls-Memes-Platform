@@ -4,14 +4,8 @@ services:
     name: campus-pulse-app
     env: php
     plan: free
-    
-    # --- The Build & Start Commands Section ---
-    # These must be nested like this.
-    build:
-      command: "composer install"
+    buildCommand: "composer install" # Top-level build command
     startCommand: "heroku-php-apache2 ."
-
-    # --- The Environment Variables Section ---
     envVars:
       - key: DATABASE_URL
         fromDatabase:

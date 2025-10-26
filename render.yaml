@@ -1,11 +1,14 @@
 services:
-  # This is the definition for your PHP web service
+  # This is the definition for your web service, now using Docker
   - type: web
     name: campus-pulse-app
-    env: php
+    env: docker # The crucial change: tell Render to use Docker
     plan: free
-    buildCommand: "composer install" # Top-level build command
-    startCommand: "heroku-php-apache2 ."
+    
+    # We no longer need buildCommand or startCommand.
+    # The Dockerfile handles all of this.
+    
+    # The environment variables section remains the same.
     envVars:
       - key: DATABASE_URL
         fromDatabase:

@@ -1,9 +1,9 @@
 
-# G42-Polls-Memes-Platform
+# Polls-Memes-Platform
 
 Overview
 --------
-G42-Polls-Memes-Platform is a lightweight web application that combines polls and image memes in a social-feed style interface. The system comprises a PHP backend API, static HTML pages, modular CSS, and ES module-based client-side code.
+Campus Pulse is a lightweight web application that combines polls and image memes in a social-feed style interface. The system comprises a PHP backend API, static HTML pages, modular CSS, and ES module-based client-side code.
 
 High-level features
 -------------------
